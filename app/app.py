@@ -177,7 +177,7 @@ def analyze():
             flash("❌ Please enter ingredients, upload an image, or paste an image for analysis.", "error")
             return render_template('index.html')
         
-        print(f"\n📊 DEBUG: Source type: {source_type}")
+        print(f"\n DEBUG: Source type: {source_type}")
         print(f"DEBUG: Text to process: {extracted_text[:200]}...")
         
         # ===== PROCESS INGREDIENTS =====
@@ -236,7 +236,7 @@ def analyze():
              return render_template('index.html')
         
         # ===== MAKE PREDICTIONS =====
-        print(f"\n🤖 DEBUG: Making predictions...")
+        print(f"\n DEBUG: Making predictions...")
         predictions = classifier.predict_multiple(ingredients)
         print(f"  Made {len(predictions)} predictions")
         
@@ -267,7 +267,7 @@ def analyze():
             except:
                 print(f"  ⚠️ Could not remove temporary file: {filepath}")
         
-        print(f"\n✅ DEBUG: Rendering results template")
+        print(f"\n DEBUG: Rendering results template")
         print("="*60 + "\n")
         
         return render_template('result.html', 
@@ -308,6 +308,6 @@ def too_large(e):
     return "File is too large. Maximum size is 64MB.", 413
 
 if __name__ == '__main__':
-    print("\n🌐 Open http://localhost:5000 in browser")
+    print("\n Open http://localhost:5000 in browser")
     print("="*60)
     app.run(debug=True, host='0.0.0.0', port=5000)
